@@ -1,22 +1,17 @@
 <html>
     <head>
-        <title>Blog Django Girls</title>
+        <title>Academia Django</title>
     </head>
     <body>
+        
+        {% for post in posts %}
         <div>
-            <h1><a href="/">Blog Django Girls</a></h1>
+            <p>Data da publicação: {{ post.published_date }}</p>
+            <h2><b href="">Titulo: </b>{{ post.title }}</h2>
+            <h3><a href="">Autor: </a>{{ post.author }}</h3>
+            <p><i>Publicação: {{ post.text|linebreaksbr }}</i></p>
         </div>
+    {% endfor %}
 
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Meu primeiro post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Meu segundo post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
     </body>
 </html>
