@@ -1,17 +1,25 @@
-<html>
-    <head>
-        <title>Academia Django</title>
-    </head>
-    <body>
-        
-        {% for post in posts %}
-        <div>
-            <p>Data da publicação: {{ post.published_date }}</p>
-            <h2><b href="">Titulo: </b>{{ post.title }}</h2>
-            <h3><a href="">Autor: </a>{{ post.author }}</h3>
-            <p><i>Publicação: {{ post.text|linebreaksbr }}</i></p>
-        </div>
-    {% endfor %}
+{% extends 'blog/base.html' %}
 
-    </body>
-</html>
+{% block content %}
+{% for post in posts %}
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+            <div class="post">
+                <div class="date">
+                    <p>Data da publicação: {{ post.published_date }}</p>
+                </div>
+                <!--<h3><b href="">Titulo: {{ post.title }}</a></h3>-->
+
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+                <h4><a href="">Autor: </a>{{ post.author }}</h3>
+                    <p>Publicação: {{ post.text|linebreaksbr }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
